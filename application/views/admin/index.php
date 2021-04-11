@@ -9,9 +9,8 @@
                             <div class="row ">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                     <div class="card-content">
-                                        <h5 class="font-15">New Booking</h5>
-                                        <h2 class="mb-3 font-18">258</h2>
-                                        <p class="mb-0"><span class="col-green">10%</span> Increase</p>
+                                        <h5 class="font-15">Categories</h5>
+                                        <h2 class="mb-3 font-18"><?=count($categorie)?></h2>                              
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -31,9 +30,8 @@
                             <div class="row ">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                     <div class="card-content">
-                                        <h5 class="font-15"> Customers</h5>
-                                        <h2 class="mb-3 font-18">1,287</h2>
-                                        <p class="mb-0"><span class="col-orange">09%</span> Decrease</p>
+                                        <h5 class="font-15"> Produits</h5>
+                                        <h2 class="mb-3 font-18"><?=count($produit)?></h2>                                       
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -53,15 +51,15 @@
                             <div class="row ">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                     <div class="card-content">
-                                        <h5 class="font-15">New Project</h5>
-                                        <h2 class="mb-3 font-18">128</h2>
-                                        <p class="mb-0"><span class="col-green">18%</span> Increase
+                                        <h5 class="font-15">Messages</h5>
+                                        <h2 class="mb-3 font-18"><?=count($mes)?></h2>
+                                        <p class="mb-0"><span class="col-green"><?=count($mes_non_lu)?></span> non lus</p>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
                                     <div class="banner-img">
-                                        <img src="assets/img/banner/3.png" alt="">
+                                        <img src="assets/img/banner/message.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -76,9 +74,9 @@
                             <div class="row ">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                     <div class="card-content">
-                                        <h5 class="font-15">Revenue</h5>
-                                        <h2 class="mb-3 font-18">$48,697</h2>
-                                        <p class="mb-0"><span class="col-green">42%</span> Increase</p>
+                                        <h5 class="font-15">Commentaires</h5>
+                                        <h2 class="mb-3 font-18"><?=count($com)?></h2>
+                                        <p class="mb-0"><span class="col-green"><?=count($com_non_lu)?> </span>non lus</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -118,12 +116,19 @@
                                 <th>Categorie</th>
                                 <th>Action</th>
                             </tr>
-                            <tr>
-                                <td>Create a mobile app</td>
-                                <td>2018-01-20</td>
-                                <td>2019-05-28</td>
-                                <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
-                            </tr>
+                            <?php
+                                foreach($produit as $p)
+                                {
+                            ?>
+                                <tr>
+                                    <td><?=$p->designation?></td>
+                                    <td><?=$p->prix?></td>
+                                    <td><?=$p->nom?></td>
+                                    <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
+                                </tr>
+                            <?php
+                                }
+                            ?>
                         </table>
                     </div>
                 </div>
@@ -137,22 +142,28 @@
             <!-- Support tickets -->
             <div class="card">
                 <div class="card-header">
-                    <h4>Emails</h4>
+                    <h4>Messages</h4>
                 </div>
-                <div class="card-body">
-                    <div class="support-ticket media pb-1 mb-3">
-                        <img src="assets/img/users/user-1.png" class="user-img mr-2" alt="">
-                        <div class="media-body ml-3">
-                            <div class="badge badge-pill badge-success mb-1 float-right">Feature</div>
-                            <span class="font-weight-bold">#89754</span>
-                            <a href="javascript:void(0)">Please add advance table</a>
-                            <p class="my-1">Hi, can you please add new table for advan...</p>
-                            <small class="text-muted">Created by <span class="font-weight-bold font-13">John
-                    Deo</span>
-                &nbsp;&nbsp; - 1 day ago</small>
-                        </div>
-                    </div>                    
-                </div>
+                <?php
+                    foreach($mes as $m)
+                    {
+                ?>
+                    <div class="card-body">
+                        <div class="support-ticket media pb-1 mb-3">
+                            <img src="assets/img/avatar/avatar2.png" class="user-img mr-2" alt="">
+                            <div class="media-body ml-3">
+                                <div class="badge badge-pill badge-success mb-1 float-right">Ouvrir</div>
+                                <span class="font-weight-bold"></span>
+                                <a href="javascript:void(0)"><?=$m->subject?></a>
+                                <p class="my-1"><?=$m->message?></p>
+                                <small class="text-muted">envoyé par <span class="font-weight-bold font-13"><?=$m->sender?></span>
+                    &nbsp;&nbsp; - <?=$m->date?></small>
+                            </div>
+                        </div>                    
+                    </div>
+                <?php
+                }
+                ?>
                 <a href="javascript:void(0)" class="card-footer card-link text-center small ">Voir tout</a>
             </div>
             <!-- Support tickets -->
@@ -163,20 +174,28 @@
                 <div class="card-header">
                     <h4>Commentaires</h4>
                 </div>
-                <div class="card-body">
-                    <div class="support-ticket media pb-1 mb-3">
-                        <img src="assets/img/users/user-1.png" class="user-img mr-2" alt="">
-                        <div class="media-body ml-3">
-                            <div class="badge badge-pill badge-success mb-1 float-right">Feature</div>
-                            <span class="font-weight-bold">#89754</span>
-                            <a href="javascript:void(0)">Please add advance table</a>
-                            <p class="my-1">Hi, can you please add new table for advan...</p>
-                            <small class="text-muted">Created by <span class="font-weight-bold font-13">John
-                    Deo</span>
-                &nbsp;&nbsp; - 1 day ago</small>
+                <?php
+                    foreach($com_join as $c)
+                    {
+                        $tab = array_slice(explode(' ',$c->commentaire),0,4);
+                        $com = implode(' ',$tab);
+                ?>  
+                    <div class="card-body">
+                        <div class="support-ticket media pb-1 mb-3">
+                            <img src="assets/img/avatar/avatar.png" class="user-img mr-2" alt="">
+                            <div class="media-body ml-3">
+                                <div class="badge badge-pill badge-success mb-1 float-right">Ouvrir</div>
+                                <span class="font-weight-bold"></span>
+                                <a href="javascript:void(0)"><?=$c->designation?></a>
+                                <p class="my-1"><?=$com?>...</p>
+                                <small class="text-muted">par <span class="font-weight-bold font-13"><?=$c->nom?></span>
+                    &nbsp;&nbsp; <?=$c->date?></small>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php
+                    }
+                ?>
                 <a href="javascript:void(0)" class="card-footer card-link text-center small ">Voir tout</a>
             </div>
             <!-- Support tickets -->

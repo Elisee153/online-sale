@@ -6,19 +6,51 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+          //les models
+        $this->load->model('Crud');	
+
         $this->load->view('layout/admin/css');  
         $this->load->view('layout/admin/head');
-        $this->load->model('Crud');
+
         if($this->session->connected)
-        {                  
-            $this->load->view('layout/admin/topbar.php');
-            $this->load->view('layout/admin/sidebar.php');
-        }       
+        {
+            $mes_non_lu = $this->Crud->get_data('message',['etat'=>0]);
+            $this->load->view('layout/admin/topbar',['mes_non_lu'=>$mes_non_lu]);
+            $this->load->view('layout/admin/sidebar');
+        }
+    }
+
+    public function check_connexion()
+    {
+        if(!$this->session->connected)
+        {
+            redirect('admin/login');
+        }
     }
 
     public function index()
     {
-        $this->load->view('admin/index');
+        $this->check_connexion();
+
+        $product = $this->Crud->join_data('produit','categorie','produit.idcategorie = categorie.id','produit.id','DESC',[],5);
+        $cat = $this->Crud->get_data('categorie');
+        $mes_non_lu = $this->Crud->get_data('message',['etat'=>0]);
+        $mes= $this->Crud->get_data_desc('message',[],5);
+        $com_join = $this->Crud->join_data('commentaire','produit','commentaire.idproduit = produit.id','commentaire.id','DESC',[],5);
+        $com_non_lu = $this->Crud->get_data('commentaire',['etat'=>0]);
+        $com = $this->Crud->get_data('commentaire');
+
+        $d = [
+            'produit' => $product,
+            'categorie' => $cat,
+            'mes_non_lu' => $mes_non_lu,
+            'mes' => $mes,
+            'com_non_lu' => $com_non_lu,
+            'com' => $com,
+            'com_join' => $com_join
+        ];
+
+        $this->load->view('admin/index',$d);
         $this->load->view('layout/admin/footer');
         $this->load->view('layout/admin/js');
     }
@@ -35,7 +67,7 @@ class Admin extends CI_Controller
                 'mdp' => $this->input->post('mdp'),
             );
 
-            $r = $this->Crud->get_data($data);
+            $r = $this->Crud->get_data('user',$data);
               
             if(count($r) > 0)
             {
@@ -61,4 +93,30 @@ class Admin extends CI_Controller
         $this->session->sess_destroy();
         redirect('admin/login');
     }
+
+    //============================================================
+    public function all_product()
+    {
+        $product = $this->Crud->join_data('produit','categorie','produit.idcategorie = categorie.id','produit.id','DESC',[]);
+
+        $d = [
+            'product'=>$product
+        ];
+
+        $this->load->view('admin/all_product',$d);
+        $this->load->view('layout/admin/js');
+    }
+
+    public function new_product()
+    {
+        if(count($_POST) <= 0)
+        {
+            $this->load->view('admin/new_product');
+            $this->load->view('layout/admin/js');
+        }else{
+
+            echo 'c le nouveau produit';
+        }
+    }
+    //==============================================================
 }

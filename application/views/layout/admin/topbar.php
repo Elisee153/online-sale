@@ -17,23 +17,28 @@
           <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
               class="nav-link nav-link-lg message-toggle"><i data-feather="mail"></i>
               <span class="badge headerBadge1">
-                6 
+                <?=count($mes_non_lu)?> 
                 </span>
             </a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
               <div class="dropdown-header">
                 Messages
               </div>
-              <div class="dropdown-list-content dropdown-list-message">
-                <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar
-											text-white"> <img alt="image" src="assets/img/users/user-1.png" class="rounded-circle">
-                  </span> <span class="dropdown-item-desc"> <span class="message-user">John
-                      Deo</span>
-                    <span class="time messege-text">Please check your mail !!</span>
-                    <span class="time">2 Min Ago</span>
-                  </span>
-                </a> 
-              </div>
+              <?php
+                foreach($mes_non_lu as $m){
+              ?>
+                <div class="dropdown-list-content dropdown-list-message">
+                  <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar
+                        text-white"> <img alt="image" src=<?=base_url("assets/img/avatar/avatar.png")?> class="rounded-circle">
+                    </span> <span class="dropdown-item-desc"> <span class="message-user"><?=$m->sender?></span>
+                      <span class="time messege-text"><?=$m->subject?></span>
+                      <span class="time"><?=$m->date?></span>
+                    </span>
+                  </a> 
+                </div>
+                <?php
+                }
+                ?>
               <div class="dropdown-footer text-center">
                 <a href="#">Voir tout<i class="fas fa-chevron-right"></i></a>
               </div>
@@ -43,7 +48,7 @@
               class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src=<?=base_url("assets/img/avatar/avatar3.png")?>
                 class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
-              <div class="dropdown-title">Hello Sarah Smith</div>
+              <div class="dropdown-title">Hello <?=$this->session->nom?></div>
               <a href="profile.html" class="dropdown-item has-icon"> <i class="far fa-user"></i> 
                 Profile
               </a>

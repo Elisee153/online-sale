@@ -14,8 +14,8 @@
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                     data-feather="briefcase"></i><span>Produits</span></a>
                 <ul class="dropdown-menu">
-                <li><a class="nav-link" href="widget-chart.html">Nouveau produit</a></li>
-                <li><a class="nav-link" href="widget-data.html">Tous les produits</a></li>
+                <li><a class="nav-link" href=<?=site_url('admin/new_product')?>>Nouveau produit</a></li>
+                <li><a class="nav-link" href=<?=site_url('admin/all_product')?>>Tous les produits</a></li>
                 </ul>
             </li>
             <li class="dropdown">
