@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2021 at 11:44 PM
+-- Generation Time: Apr 11, 2021 at 03:18 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -33,6 +33,14 @@ CREATE TABLE `categorie` (
   `nom` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `categorie`
+--
+
+INSERT INTO `categorie` (`id`, `nom`) VALUES
+(1, 'Numerique'),
+(2, 'Habillement');
+
 -- --------------------------------------------------------
 
 --
@@ -44,9 +52,19 @@ CREATE TABLE `commentaire` (
   `nom` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `commentaire` text NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `etat` int(11) NOT NULL DEFAULT '0',
   `idproduit` int(11) NOT NULL,
   `iduser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `commentaire`
+--
+
+INSERT INTO `commentaire` (`id`, `nom`, `email`, `commentaire`, `date`, `etat`, `idproduit`, `iduser`) VALUES
+(1, 'Paul lumbala', 'paul@gmail.com', 'C\'est un tres bon produit', '12-04-12', 0, 2, 1),
+(2, 'Jeanluc Kabulu', 'jeanluc@gmail.com', 'C tres grave tout ca', '12-04-2021', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -71,10 +89,20 @@ CREATE TABLE `message` (
   `id` int(11) NOT NULL,
   `sender` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
   `message` text NOT NULL,
   `date` varchar(100) NOT NULL,
+  `etat` int(11) NOT NULL DEFAULT '0',
   `iduser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`id`, `sender`, `email`, `subject`, `message`, `date`, `etat`, `iduser`) VALUES
+(1, 'Kasongo Scott', 'scott@gmail.com', 'Contact', 'Hi! I am so amazed to see you here', '10-04-2021', 0, 1),
+(2, 'Youri', 'youri@gmail.com', 'Command', 'J\'ai besoin d\'une chemise', '12-04-2021', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -90,6 +118,14 @@ CREATE TABLE `produit` (
   `idcategorie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `produit`
+--
+
+INSERT INTO `produit` (`id`, `designation`, `prix`, `description`, `idcategorie`) VALUES
+(1, 'Lap Top', 300, 'Tres bon ordinateur portable', 1),
+(2, 'Chemise', 200, 'Tres belle chemise', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -104,6 +140,13 @@ CREATE TABLE `user` (
   `type` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `username`, `mdp`, `type`, `email`) VALUES
+(1, 'Jesus Kazembe', 'jesus', '0000', 'admin', 'jesus@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -158,13 +201,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `commentaire`
 --
 ALTER TABLE `commentaire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `image`
@@ -176,19 +219,19 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
