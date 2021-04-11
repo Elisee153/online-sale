@@ -6,3 +6,5 @@
 <!-- Custom style CSS -->
 <link rel="stylesheet" href=<?=base_url("assets/css/custom.css")?>>
 <link rel='shortcut icon' type='image/x-icon' href=<?=base_url('assets/img/favicon.ico')?> />
+
+<script src=<?=base_url("assets/js/jquery.min.js")?>></script>

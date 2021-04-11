@@ -111,11 +111,39 @@ class Admin extends CI_Controller
     {
         if(count($_POST) <= 0)
         {
-            $this->load->view('admin/new_product');
+            $d['categ'] = $this->Crud->get_data('categorie');
+
+            $this->load->view('admin/new_product',$d);
             $this->load->view('layout/admin/js');
         }else{
+            $this->db->trans_start();
+            $d = [
+                'designation' => $this->input->post('designation'),
+                'prix' => $this->input->post('prix'),
+                'description' => $this->input->post('description'),
+                'idcategorie' => $this->input->post('categorie')
+            ];
 
-            echo 'c le nouveau produit';
+            //ajout d'un produit
+            $this->Crud->add_data('produit',$d);
+
+            //les images
+            $nbimg = $this->input->post('nbimg');
+
+            for($j = 1;$j <= $nbimg;$j++)
+            {
+                $t = [
+                    'image' => $this->input->post('img'.$j),
+                    'main' => $j==1? 1 : 0,
+                    'idproduit' => $this->Crud->get_data_desc('produit')[0]->id,
+                ];
+
+                $this->Crud->add_data('image',$t);
+            }
+            $this->db->trans_complete();
+            
+            redirect('admin/all_product');
+            $this->load->view('layout/admin/js');
         }
     }
     //==============================================================
