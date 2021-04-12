@@ -8,3 +8,4 @@
 <link rel='shortcut icon' type='image/x-icon' href=<?=base_url('assets/img/favicon.ico')?> />
 
 <script src=<?=base_url("assets/js/jquery.min.js")?>></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

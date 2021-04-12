@@ -142,6 +142,9 @@ class Admin extends CI_Controller
             }
             $this->db->trans_complete();
             
+            $session_flash = array("produit_ajoute" => true);
+            $this->session->set_flashdata($session_flash);
+
             redirect('admin/all_product');
             $this->load->view('layout/admin/js');
         }

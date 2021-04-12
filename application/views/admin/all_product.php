@@ -1,3 +1,12 @@
+<?php
+    if($this->session->produit_ajoute){
+?>
+        <script>
+            swal("Bon travail", "Produit ajouté avec succès", "success");
+        </script>
+<?php
+    }
+?>
 <div class="main-content">
     <section class="section">
     <div class="row">
