@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2021 at 03:18 PM
+-- Generation Time: Apr 15, 2021 at 09:41 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -39,7 +39,8 @@ CREATE TABLE `categorie` (
 
 INSERT INTO `categorie` (`id`, `nom`) VALUES
 (1, 'Numerique'),
-(2, 'Habillement');
+(2, 'Habillement'),
+(3, 'Musique');
 
 -- --------------------------------------------------------
 
@@ -63,8 +64,7 @@ CREATE TABLE `commentaire` (
 --
 
 INSERT INTO `commentaire` (`id`, `nom`, `email`, `commentaire`, `date`, `etat`, `idproduit`, `iduser`) VALUES
-(1, 'Paul lumbala', 'paul@gmail.com', 'C\'est un tres bon produit', '12-04-12', 0, 2, 1),
-(2, 'Jeanluc Kabulu', 'jeanluc@gmail.com', 'C tres grave tout ca', '12-04-2021', 1, 1, 1);
+(1, 'Jean-louis', 'jean@gmail.com', 'C comment qu\'on fait pour commenter', '12-02-2021', 0, 12, NULL);
 
 -- --------------------------------------------------------
 
@@ -78,6 +78,17 @@ CREATE TABLE `image` (
   `main` int(11) NOT NULL,
   `idproduit` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `image`
+--
+
+INSERT INTO `image` (`id`, `image`, `main`, `idproduit`) VALUES
+(13, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (2).jpg', 1, 12),
+(14, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (7).jpg', 0, 12),
+(15, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (6).jpg', 0, 12),
+(16, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (11).jpg', 0, 12),
+(17, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images.jpg', 0, 12);
 
 -- --------------------------------------------------------
 
@@ -101,7 +112,7 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id`, `sender`, `email`, `subject`, `message`, `date`, `etat`, `iduser`) VALUES
-(1, 'Kasongo Scott', 'scott@gmail.com', 'Contact', 'Hi! I am so amazed to see you here', '10-04-2021', 0, 1),
+(1, 'Kasongo Scott', 'scott@gmail.com', 'Contact', 'Hi! I am so amazed to see you here', '10-04-2021', 1, 1),
 (2, 'Youri', 'youri@gmail.com', 'Command', 'J\'ai besoin d\'une chemise', '12-04-2021', 1, 1);
 
 -- --------------------------------------------------------
@@ -123,8 +134,7 @@ CREATE TABLE `produit` (
 --
 
 INSERT INTO `produit` (`id`, `designation`, `prix`, `description`, `idcategorie`) VALUES
-(1, 'Lap Top', 300, 'Tres bon ordinateur portable', 1),
-(2, 'Chemise', 200, 'Tres belle chemise', 2);
+(12, 'Ecouteur', 2000, 'lorem', 1);
 
 -- --------------------------------------------------------
 
@@ -201,19 +211,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `commentaire`
 --
 ALTER TABLE `commentaire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `message`
@@ -225,7 +235,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
