@@ -124,7 +124,10 @@
                                     <td><?=$p->designation?></td>
                                     <td><?=$p->prix?></td>
                                     <td><?=$p->nom?></td>
-                                    <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
+                                    <form action=<?=site_url("admin/product_detail")?> method="post">
+                                        <input type="text" name="idproduit" value="<?=$p->id?>" hidden>
+                                        <td><button type="submit" class="btn btn-outline-primary">Detail</button></td>
+                                    </form>
                                 </tr>
                             <?php
                                 }
@@ -150,9 +153,9 @@
                 ?>
                     <div class="card-body">
                         <div class="support-ticket media pb-1 mb-3">
-                            <img src="assets/img/avatar/avatar2.png" class="user-img mr-2" alt="">
+                            <i style="font-size:40px" data-feather="mail"></i>
                             <div class="media-body ml-3">
-                                <div class="badge badge-pill badge-success mb-1 float-right">Ouvrir</div>
+                            <a href=<?=site_url('admin/mail_detail?id='.$m->id)?> class="badge badge-pill badge-success mb-1 float-right" style="color:white">Ouvrir</a>
                                 <span class="font-weight-bold"></span>
                                 <a href="javascript:void(0)"><?=$m->subject?></a>
                                 <p class="my-1"><?=$m->message?></p>
@@ -164,7 +167,7 @@
                 <?php
                 }
                 ?>
-                <a href="javascript:void(0)" class="card-footer card-link text-center small ">Voir tout</a>
+                <a href=<?=site_url('admin/all_mails')?> class="card-footer card-link text-center small ">Voir tout</a>
             </div>
             <!-- Support tickets -->
         </div>
@@ -182,9 +185,9 @@
                 ?>  
                     <div class="card-body">
                         <div class="support-ticket media pb-1 mb-3">
-                            <img src="assets/img/avatar/avatar.png" class="user-img mr-2" alt="">
+                        <span style="font-size:40px" class="iconify" data-icon="fe-comments" data-inline="false"></span>
                             <div class="media-body ml-3">
-                                <div class="badge badge-pill badge-success mb-1 float-right">Ouvrir</div>
+                            <a href=<?=site_url('admin/comment_detail?id='.$c->id)?> class="badge badge-pill badge-success mb-1 float-right" style="color:white">Ouvrir</a>
                                 <span class="font-weight-bold"></span>
                                 <a href="javascript:void(0)"><?=$c->designation?></a>
                                 <p class="my-1"><?=$com?>...</p>
@@ -196,7 +199,7 @@
                 <?php
                     }
                 ?>
-                <a href="javascript:void(0)" class="card-footer card-link text-center small ">Voir tout</a>
+                <a href=<?=site_url("admin/all_comments")?> class="card-footer card-link text-center small ">Voir tout</a>
             </div>
             <!-- Support tickets -->
         </div>

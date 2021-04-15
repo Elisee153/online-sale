@@ -7,7 +7,7 @@
                     <div class="card-header">
                         <h4>Nouveau produit</h4>
                     </div>
-                    <form action=<?=site_url('admin/new_product')?> method='post' id="form">
+                    <form action=<?=site_url('admin/new_product')?> method='post' id="form" enctype="multipart/form-data">
                     <div class="card-body">
                     <div class="form-group">
                         <label>Designation</label>

@@ -43,7 +43,7 @@ class Crud extends CI_Model
 
     public function join_data($table,$table2,$join,$order,$sens,$clause=[],$limit=null)
     {
-        $this->db->select('*')
+        $this->db->select("*,".$table.'.id as id')
                  ->from($table)
                  ->join($table2,$join)
                  ->order_by($order,$sens)

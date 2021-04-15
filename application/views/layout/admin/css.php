@@ -9,3 +9,4 @@
 
 <script src=<?=base_url("assets/js/jquery.min.js")?>></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>

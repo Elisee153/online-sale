@@ -16,9 +16,15 @@
         <ul class="navbar-nav navbar-right">
           <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
               class="nav-link nav-link-lg message-toggle"><i data-feather="mail"></i>
-              <span class="badge headerBadge1">
+              <?php 
+                  if(count($mes_non_lu) >= 1){
+                ?>
+                 <span class="badge headerBadge1">
                 <?=count($mes_non_lu)?> 
                 </span>
+              <?php
+              }?>
+             
             </a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
               <div class="dropdown-header">

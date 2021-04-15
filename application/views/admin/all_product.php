@@ -17,9 +17,9 @@
                         <div class="card-header-form">
                             <form>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Recherche">
+                                    <input type="text" class="form-control" placeholder="Recherche" id="search-form">
                                     <div class="input-group-btn">
-                                        <button style="padding:8px" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                        <button style="padding:8px" id="search" class="btn btn-primary"><i class="fas fa-search"></i></button>
                                     </div>
                                 </div>
                             </form>
@@ -27,13 +27,13 @@
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table id="product_space" class="table table-striped">
                                 <tr>
                                     <th>Designation</th>
                                     <th>Prix</th>
                                     <th>Categorie</th>
                                     <th>Action</th>
-                                </tr>
+                                </tr>                            
                                 <?php
                                     foreach($product as $p)
                                     {
@@ -42,7 +42,10 @@
                                         <td><?=$p->designation?></td>
                                         <td><?=$p->prix?></td>
                                         <td><?=$p->nom?></td>
-                                        <td><a href="#" class="btn btn-outline-primary">Detail</a></td>
+                                        <form action=<?=site_url("admin/product_detail")?> method="post">
+                                            <input type="text" name="idproduit" value="<?=$p->id?>" hidden>
+                                            <td><button type="submit" class="btn btn-outline-primary">Detail</button></td>
+                                        </form>
                                     </tr>
                                 <?php
                                     }
@@ -55,3 +58,31 @@
         </div>
     </section>
 </div>
+
+<script>
+    $(function(){
+        $('#search').click(function(e){
+            e.preventDefault();
+
+           var item = $('#search-form').val().toLowerCase();
+
+           $.post("<?=site_url('ajax/search_product')?>",{item:item},function(response){
+               console.log(response);
+               $('#product_space').html(response);
+           })
+        })
+
+        $('#search-form').blur(function(e){
+            e.preventDefault();
+            
+            if($('#search-form').val() == ''){
+                console.log('blur');
+                $.post("<?=site_url('ajax/all_product')?>",{},function(data){
+                    $('#product_space').html(data);
+                })                      
+            }
+        })
+
+        
+    })
+</script>
