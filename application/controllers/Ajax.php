@@ -46,7 +46,7 @@ class Ajax extends CI_Controller
                     <td>'.$p->designation.'</td>
                     <td>'.$p->prix.'</td>
                     <td>'.$p->nom.'</td>
-                    <form action='.site_url("admin/product_detail").' method="post">
+                    <form action="'.site_url("admin/product_detail").'" method="post">
                         <input type="text" name="idproduit" value="'.$p->id.'" hidden>
                         <td><button type="submit" class="btn btn-outline-primary">Detail</button></td>
                     </form>

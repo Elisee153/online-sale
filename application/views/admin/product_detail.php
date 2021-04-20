@@ -20,7 +20,7 @@
                     <div class="row">
                         <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 offset-2">
-                                <a href="assets/img/image-gallery/1.png")?> data-sub-html="Demo Description">
+                                <a href=<?=base_url("assets/img/image-gallery/1.png")?> data-sub-html="Demo Description">
                                 <img class="img-responsive thumbnail" src="<?=base_url('assets/img/produit/'.$image)?>" alt="">
                                 </a>
                             </div>
@@ -57,8 +57,8 @@
                             $image = $product[0]->image[$j]->image;
                     ?>
                             <div style="margin-left:50px" class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                <a href="assets/img/image-gallery/1.png")?> data-sub-html="Demo Description">
-                                <img class="img-responsive" src="<?=base_url('assets/img/produit/'.$image)?>" height="150px">
+                                <a href=<?=base_url("assets/img/image-gallery/1.png")?> data-sub-html="Demo Description">
+                                <img class="img-responsive" src="<?=base_url('assets/img/produit/'.$image)?>">
                                 </a>
                             </div>
                     <?php
