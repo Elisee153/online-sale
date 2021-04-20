@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2021 at 09:41 PM
+-- Generation Time: Apr 20, 2021 at 10:15 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -40,7 +40,10 @@ CREATE TABLE `categorie` (
 INSERT INTO `categorie` (`id`, `nom`) VALUES
 (1, 'Numerique'),
 (2, 'Habillement'),
-(3, 'Musique');
+(3, 'Musique'),
+(4, 'Industry'),
+(5, 'Divers'),
+(6, 'Sports');
 
 -- --------------------------------------------------------
 
@@ -64,7 +67,8 @@ CREATE TABLE `commentaire` (
 --
 
 INSERT INTO `commentaire` (`id`, `nom`, `email`, `commentaire`, `date`, `etat`, `idproduit`, `iduser`) VALUES
-(1, 'Jean-louis', 'jean@gmail.com', 'C comment qu\'on fait pour commenter', '12-02-2021', 0, 12, NULL);
+(1, 'Jean-louis', 'jean@gmail.com', 'C comment qu\'on fait pour commenter', '12-02-2021', 1, 21, NULL),
+(2, 'Jesus Kaz', 'jesus@gmail.com', 'This is the best cask in central africa!', '20-04-2021', 1, 21, NULL);
 
 -- --------------------------------------------------------
 
@@ -88,7 +92,23 @@ INSERT INTO `image` (`id`, `image`, `main`, `idproduit`) VALUES
 (14, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (7).jpg', 0, 12),
 (15, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (6).jpg', 0, 12),
 (16, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (11).jpg', 0, 12),
-(17, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images.jpg', 0, 12);
+(17, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images.jpg', 0, 12),
+(18, 'fichierb76c6b0f5594588986a2deffc97e5580_hero-slide1.png', 1, 13),
+(19, 'fichierb76c6b0f5594588986a2deffc97e5580_product5.png', 0, 13),
+(20, 'fichiera4be13e2fcd6da47a654bd2ce5c31b06_hero-slide2.png', 1, 14),
+(21, 'fichiera4be13e2fcd6da47a654bd2ce5c31b06_s-p1.jpg', 0, 14),
+(22, 'fichier610611e62812ffc9f1bd0ecb42baa598_james-kovin-425Slg4x60U-unsplash.jpg', 1, 15),
+(23, 'fichier4b997a3342d243ce47c8890aec3becf3_s-p1.jpg', 1, 16),
+(24, 'fichier4b997a3342d243ce47c8890aec3becf3_s-p1.jpg', 0, 16),
+(25, 'fichier4b997a3342d243ce47c8890aec3becf3_s-p1.jpg', 0, 16),
+(26, 'fichier6af623131e251d32c6ae8c06acc18a47_product2.png', 1, 17),
+(27, 'fichier6af623131e251d32c6ae8c06acc18a47_product2.png', 0, 17),
+(30, 'fichier9b5a29aba038975e65b0c2c8e381513b_product3.png', 1, 19),
+(31, 'fichier9b5a29aba038975e65b0c2c8e381513b_product6.png', 0, 19),
+(32, 'fichier66fb563271ec4b3f07d0fbf966438484_hobi-industri-NLBJ2I0lNr4-unsplash.jpg', 1, 20),
+(33, 'fichier66fb563271ec4b3f07d0fbf966438484_sharegrid-LbzWs77C6Jc-unsplash.jpg', 0, 20),
+(34, 'fichier94a8e4671d3cb970be8587ebcb03af6e_hero-slide2.png', 1, 21),
+(35, 'fichier9b54e5ef0b853d46ea2b149a749f2213_nina-mercado-KWjgfKVzjrM-unsplas.jpg', 1, 22);
 
 -- --------------------------------------------------------
 
@@ -124,7 +144,7 @@ INSERT INTO `message` (`id`, `sender`, `email`, `subject`, `message`, `date`, `e
 CREATE TABLE `produit` (
   `id` int(11) NOT NULL,
   `designation` varchar(255) NOT NULL,
-  `prix` float NOT NULL,
+  `prix` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `idcategorie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -134,7 +154,16 @@ CREATE TABLE `produit` (
 --
 
 INSERT INTO `produit` (`id`, `designation`, `prix`, `description`, `idcategorie`) VALUES
-(12, 'Ecouteur', 2000, 'lorem', 1);
+(12, 'Ecouteur', '2000', 'lorem', 1),
+(13, 'Chosuure', '30000', 'Tres belles chossures ', 2),
+(14, 'Ecouteur', '12000', 'Des ecouteurs pas comme les autres.', 1),
+(15, 'Mechanic tool', '12000', 'Un outil tres fort et puissant', 4),
+(16, 'Montre', '2000', 'Tres belle montre', 5),
+(17, 'Women Freshwash', '13000', 'Tres bonne chose a mettre au travail', 5),
+(19, 'Room Flash Light', '15 $', 'Let one fifth i bring fly to divided face for bearing divide unto seed. Winged divided light Forth.', 5),
+(20, 'Electrical', '100 $', 'Let one fifth i bring fly to divided face for bearing divide unto seed. Winged divided light Forth.', 4),
+(21, 'Cask', '20000 FC', 'Let one fifth i bring fly to divided face for bearing divide unto seed. Winged divided light Forth.', 1),
+(22, 'Engine', '100 $', 'Let one fifth i bring fly to divided face for bearing divide unto seed. Winged divided light Forth.', 4);
 
 -- --------------------------------------------------------
 
@@ -211,19 +240,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `commentaire`
 --
 ALTER TABLE `commentaire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `message`
@@ -235,7 +264,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `user`
