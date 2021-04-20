@@ -2692,31 +2692,31 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .form-control.creditcard.visa {
-    background-image: url("../img/cards/visa.png")
+    background-image: url("../img/cards/visa.png")?>)
 }
 
 .form-control.creditcard.americanexpress {
-    background-image: url("../img/cards/americanexpress.png")
+    background-image: url("../img/cards/americanexpress.png")?>)
 }
 
 .form-control.creditcard.dinersclub {
-    background-image: url("../img/cards/dinersclub.png")
+    background-image: url("../img/cards/dinersclub.png")?>)
 }
 
 .form-control.creditcard.discover {
-    background-image: url("../img/cards/discover.png")
+    background-image: url("../img/cards/discover.png")?>)
 }
 
 .form-control.creditcard.jcb {
-    background-image: url("../img/cards/jcb.png")
+    background-image: url("../img/cards/jcb.png")?>)
 }
 
 .form-control.creditcard.mastercard {
-    background-image: url("../img/cards/mastercard.png")
+    background-image: url("../img/cards/mastercard.png")?>)
 }
 
 .form-control.creditcard.visa {
-    background-image: url("../img/cards/visa.png")
+    background-image: url("../img/cards/visa.png")?>)
 }
 
 .form-group {

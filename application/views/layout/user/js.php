@@ -1,37 +1,21 @@
- <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="<?= base_url('assets/assets/js/jquery-2.2.4.min.js')?>"></script>
-<script type="text/javascript" src="<?= base_url('assets/assets/js/themejs/application.js')?>"></script>
-<script type="text/javascript" src="<?=base_url('assets/assets/js/themejs/homepage.js') ?>"></script>
-<script type="text/javascript" src="<?=base_url('assets/assets/js/themejs/so_megamenu.js')?>"></script>
-<script type="text/javascript" src="<?=base_url('assets/assets/js/themejs/addtocart.js')?>"></script>	
-<script type="text/javascript" src="<?=base_url('assets/assets/js/themejs/cpanel.js')?>"></script>
+
+<script src=<?=base_url("assets/user/vendors/jquery/jquery-3.2.1.min.js")?>></script>
+<script src=<?=base_url("assets/user/vendors/bootstrap/bootstrap.bundle.min.js")?>></script>
+<script src=<?=base_url("assets/user/vendors/skrollr.min.js")?>></script>
+<script src=<?=base_url("assets/user/vendors/owl-carousel/owl.carousel.min.js")?>></script>
+<script src=<?=base_url("assets/user/vendors/nice-select/jquery.nice-select.min.js")?>></script>
+<script src=<?=base_url("assets/user/vendors/jquery.ajaxchimp.min.js")?>></script>
+<script src=<?=base_url("assets/user/vendors/mail-script.js")?>></script>
+<script src=<?=base_url("assets/user/js/main.js")?>></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-    $(function(){
-        alert('jqery');
-    })
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
 </script>
-<script type="text/javascript" src="<?php echo base_url().'assets/assets/js/bootstrap.min.js'; ?>"></script>
-<script type="text/javascript" src="<?php base_url().'assets/assets/js/owl-carousel/owl.carousel.js'; ?>"></script>
-<script type="text/javascript" src="<?php base_url().'assets/assets/js/themejs/libs.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/assets/js/unveil/jquery.unveil.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/assets/js/countdown/jquery.countdown.min.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/assets/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/assets/js/datetimepicker/moment.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/assets/js/datetimepicker/bootstrap-datetimepicker.min.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/assets/js/jquery-ui/jquery-ui.min.js'; ?>"></script>
-
-
-<!-- Theme files
-============================================ -->
-<script type="text/javascript" src="<?php echo base_url().'assets/assets/js/themejs/so_megamenu.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/assets/js/themejs/addtocart.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/assets/js/themejs/application.js').; ?>"></script>
-
-<!-- Theme files
-============================================ -->
-
-<!--<script type="text/javascript" src="assets/js/themejs/toppanel.js"></script>-->
-
-<script type="text/javascript" src="<?php echo base_url().'assets/assets/js/minicolors/jquery.miniColors.min.js'; ?>"></script>
-</body>
-</html>

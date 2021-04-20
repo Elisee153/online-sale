@@ -1,83 +1,92 @@
-<footer class="footer-container type_footer5">
-		<section class="footer-center">
-			<div class=" container">
-				<div class="row">	
-					<hr class="footer-lines ">
-					<div class="col-sm-6 col-md-3 box-information">
-						<div class="module clearfix">
-							<h3 class="modtitle">Information</h3>
-							<div class="modcontent">
-								<ul class="menu">
-									<li><a href="about-us.html">A propos</a></li>
-									<li><a href="faq.html">FAQ</a></li>
-									<li><a href="order-history.html">histore</a></li>
-									<li><a href="order-information.html">information</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-3 box-service">
-						<div class="module clearfix">
-							<h3 class="modtitle">Service Client</h3>
-							<div class="modcontent">
-								<ul class="menu">
-									<li><a href="contact.html">Nous Contacter</a></li>
-									<li><a href="return.html">Retourner</a></li>
-									<li><a href="my-account.html">Mon Compte</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-3 box-account">
-						<div class="module clearfix">
-							<h3 class="modtitle">Mon Compte</h3>
-							<div class="modcontent">
-								<ul class="menu">
-									<li><a href="#">Brands</a></li>
-									<li><a href="#" target="_blank">Blog</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-3 collapsed-block ">
-						<div class="module clearfix">
-							<h3 class="modtitle">Nous Contacter</h3>
-							<div class="modcontent">
-								<ul class="contact-address">
-									<li><span class="fa fa-map-marker"></span> My Company, 40 avenue Makomeno DRC</li>
-									<li><span class="fa fa-envelope-o"></span> Email: <a href="#"> developper@TradeMarket.com</a></li>
-									<li><span class="fa fa-phone">&nbsp;</span> Phone 1: +243970719030</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					
-					<hr class="footer-lines no-margin-bottom">
-				</div>
-			</div>	
-		</section>
-		
-		<!-- Footer Bottom Container -->
-		<div class="footer-bottom-block ">
-			<div class=" container">
-				<div class="row">
-					<div class="col-sm-5 copyright-text"> © 2020 Market. tout droit réservé. </div>
-					<div class="col-sm-7">
-						<div class="block-payment text-right"><img src="<?php echo base_url().'assets/image/demo/content/payment.png'; ?>" alt="payment" title="payment" ></div>
-					</div>
-					<!--Back To Top-->
-					<div class="back-to-top"><i class="fa fa-angle-up"></i><span> Top </span></div>
-
-				</div>
-			</div>
-		</div>
-		<!-- /Footer Bottom Container -->
-		
-		
+<footer class="footer">
+        <div class="footer-area">
+            <div class="container">
+                <div class="row section_gap">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget tp_widgets">
+                            <h4 class="footer_title large_title">Our Services</h4>
+                            <ul class="list">
+                               <li>Supply of crusher spares, conveyor belts, rollers and fasteners.</li>
+                            
+                            
+                               <li> Supply of bearings and Plummer blocks.</li>
+                        
+                            
+                               <li> Supply & Rehabilitation of gear boxes.</li>
+                              
+                            
+                               <li> Supply of Lubricating Pumps.</li>
+                             
+                            
+                                <li>Supply of Mill Liners and Rehabilitation of Mills, Vibrators and Shells.</li>
+                             
+                            
+                            <li>Fabrication of all Mining Chutes, Grizzlly bars, Mounting frames ,Conies, Vibrator pans Fabrication and Installation of Mining structures.</li>
+                            </ul> 
+                        </div>
+                    </div>
+                    <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+                        <div class="single-footer-widget tp_widgets">
+                            <h4 class="footer_title">Quick Links</h4>
+                            <ul class="list">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Products</a></li>
+                                <li><a href="#">Categories</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">About</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="single-footer-widget instafeed">
+                            <h4 class="footer_title">Gallery</h4>
+                            <ul class="list instafeed d-flex flex-wrap">
+                                <li><img src=<?=base_url("assets/user/img/gallery/r1.jpg")?> alt=""></li>
+                                <li><img src=<?=base_url("assets/user/img/gallery/r2.jpg")?> alt=""></li>
+                                <li><img src=<?=base_url("assets/user/img/gallery/r3.jpg")?> alt=""></li>
+                                <li><img src=<?=base_url("assets/user/img/gallery/r5.jpg")?> alt=""></li>
+                                <li><img src=<?=base_url("assets/user/img/gallery/r7.jpg")?> alt=""></li>
+                                <li><img src=<?=base_url("assets/user/img/gallery/r8.jpg")?> alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget tp_widgets">
+                            <h4 class="footer_title">Contact Us</h4>
+                            <div class="ml-40">
+                                <p class="sm-head">
+                                    <span class="fa fa-location-arrow"></span> Head Office
+                                </p>
+                                <p>123, Main Street, Your City</p>
+                                <p class="sm-head">
+                                    <span class="fa fa-phone"></span> Phone Number
+                                </p>
+                                <p>
+                                    +123 456 7890 <br> +123 456 7890
+                                </p>
+                                <p class="sm-head">
+                                    <span class="fa fa-envelope"></span> Email
+                                </p>
+                                <p>
+                                    <a href="https://preview.colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4a2c382f2f0a23242c252f322b273a262f64292527">[email&#160;protected]</a> <br> www.infoexample.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row d-flex">
+                    <p class="col-lg-12 footer-text text-center">
+                        Copyright &copy;
+                        <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | made by DTeam
+                    </p>
+                </div>
+            </div>
+        </div>
     </footer>
-<!-- Include Libs & Plugins
-	============================================ -->
-   

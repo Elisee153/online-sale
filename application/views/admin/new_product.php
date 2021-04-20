@@ -13,14 +13,23 @@
                         <label>Designation</label>
                         <input type="text" class="form-control" name="designation">
                     </div>
-                    <div class="form-group">
-                        <label>Prix</label>
-                        <div class="input-group">
-                        <div class="input-group-prepend">
+                    <div class="row">
+                        <div class="form-group col-md-9">
+                            <label>Prix</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" name="prix" min=1>                            
+                            </div>
+                        </div>    
+
+                        <div class="form-group col-md-2">
+                            <label>Devise</label>
+                            <select class="form-control" name="devise">
+                                <option value="$">$</option>
+                                <option value="FC">FC</option>
+                            </select>
                         </div>
-                        <input type="number" class="form-control" name="prix">
-                        </div>
-                    </div>    
+                    </div>
+
                     <div class="form-group">
                       <label>Categorie</label>
                       <select class="form-control" name="categorie">

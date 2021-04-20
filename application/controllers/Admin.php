@@ -121,9 +121,12 @@ class Admin extends CI_Controller
             $this->load->view('layout/admin/js');
         }else{
             $this->db->trans_start();
+
+            $prix = $this->input->post('prix').' '.$this->input->post('devise');
+
             $d = [
                 'designation' => $this->input->post('designation'),
-                'prix' => $this->input->post('prix'),
+                'prix' => $prix,
                 'description' => $this->input->post('description'),
                 'idcategorie' => $this->input->post('categorie')
             ];
