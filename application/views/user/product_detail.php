@@ -1,12 +1,22 @@
+<?php
+    if($this->session->comment_sent){
+?>
+    <script>
+        swal("Good work", "Comment saved successfully!", "success");
+    </script>
+<?php
+    }
+?>
+
 <section class="blog-banner-area" id="blog">
     <div class="container h-100">
         <div class="blog-banner">
             <div class="text-center">
-                <h1>Shop Single</h1>
+                <h1>Single product</h1>
                 <nav aria-label="breadcrumb" class="banner-breadcrumb">
                 <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Shop Single</li>
+                <li class="breadcrumb-item active" aria-current="page">Single product</li>
                 </ol>
                 </nav>
             </div>
@@ -106,7 +116,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="commen" id="message" rows="5" placeholder="Comment"></textarea>
+                                    <textarea class="form-control" name="comment" id="message" rows="5" placeholder="Comment"></textarea>
                                 </div>
                             </div>
                             <input type="text" value=<?=$product[0]->id?> name="idproduit" hidden>

@@ -1,11 +1,21 @@
+<?php
+    if($this->session->email_saved){
+?>
+    <script>
+        swal("Good work", "Email saved successfully!", "success");
+    </script>
+<?php
+    }
+?>
+
 <main class="site-main">
 
         <section class="hero-banner">
             <div class="container">
                 <div class="row no-gutters align-items-center pt-60px">
-                    <div class="col-5 d-none d-sm-block">
+                    <div class="col-4 d-none d-sm-block">
                         <div class="hero-banner__img">
-                            <img class="img-fluid" src=<?=base_url("assets/user/img/home/hero-banner.png")?> alt="">
+                            <img class="img-fluid" src=<?=base_url("assets/user/img/home/banner.png")?> alt="">
                         </div>
                     </div>
                     <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
@@ -13,7 +23,7 @@
                             <h1>SURMPY ENGINEERING</h1>
                             <h4>& S E R V I C E S L I M I T E D</h4>
                             <br/><br/>
-                            <a class="button button-hero" href="#">Our Products</a>
+                            <a class="button button-hero" href="<?=site_url("user/all_product")?>">Our Products</a>
                         </div>
                     </div>
                 </div>
@@ -63,10 +73,12 @@
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <div class="card text-center card-product">
                             <div class="card-product__img">
-                                <img class="card-img" src=<?=base_url("assets/img/produit/".$p->image->image)?> alt="" style="height:220px;">
-                                <ul class="card-product__imgOverlay">
-                                    <li><a href="<?=site_url("user/product_detail?id=".$p->id)?>"><button title="See"><i class="ti-eye"></i></button></a></li>
-                                </ul>
+                                <a href="<?=site_url("user/product_detail?id=".$p->id)?>">
+                                    <img class="card-img" src=<?=base_url("assets/img/produit/".$p->image->image)?> alt="Product" style="height:220px;">
+                                    <ul class="card-product__imgOverlay">
+                                        <li><button title="See"><i class="ti-eye"></i></button></li>
+                                    </ul>
+                                </a>
                             </div>
                             <div class="card-body">
                                 <p><?=$p->categorie?></p>
@@ -109,16 +121,12 @@
                 <div class="subscribe text-center">
                     <h3 class="subscribe__title">Get Update From Anywhere</h3>
                     <p>Bearing Void gathering light light his eavening unto dont afraid</p>
-                    <div id="mc_embed_signup">
-                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe-form form-inline mt-5 pt-1">
+                    <div>
+                        <form action="<?=site_url("user/newslater")?>" method="post" class="subscribe-form form-inline mt-5 pt-1">
                             <div class="form-group ml-sm-auto">
-                                <input class="form-control mb-1" type="email" name="EMAIL" placeholder="Enter your email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '">
-                                <div class="info"></div>
+                                <input class="form-control mb-1" type="email" name="email" placeholder="Enter your email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '">                                
                             </div>
-                            <button class="button button-subscribe mr-auto mb-1" type="submit">Subscribe Now</button>
-                            <div style="position: absolute; left: -5000px;">
-                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                            </div>
+                            <button class="button button-subscribe mr-auto mb-1" type="submit">Subscribe Now</button>                            
                         </form>
                     </div>
                 </div>

@@ -35,7 +35,7 @@
               ?>
                 <div class="dropdown-list-content dropdown-list-message">
                   <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar
-                        text-white"> <img alt="image" src=<?=base_url("assets/img/avatar/avatar.png")?>)?> class="rounded-circle">
+                        text-white"> <img alt="image" src=<?=base_url("assets/img/avatar/avatar.png")?> class="rounded-circle">
                     </span> <span class="dropdown-item-desc"> <span class="message-user"><?=$m->sender?></span>
                       <span class="time messege-text"><?=$m->subject?></span>
                       <span class="time"><?=$m->date?></span>

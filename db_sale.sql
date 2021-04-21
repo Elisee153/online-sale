@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2021 at 10:15 PM
+-- Generation Time: Apr 21, 2021 at 10:00 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -68,7 +68,28 @@ CREATE TABLE `commentaire` (
 
 INSERT INTO `commentaire` (`id`, `nom`, `email`, `commentaire`, `date`, `etat`, `idproduit`, `iduser`) VALUES
 (1, 'Jean-louis', 'jean@gmail.com', 'C comment qu\'on fait pour commenter', '12-02-2021', 1, 21, NULL),
-(2, 'Jesus Kaz', 'jesus@gmail.com', 'This is the best cask in central africa!', '20-04-2021', 1, 21, NULL);
+(2, 'Jesus Kaz', 'jesus@gmail.com', 'This is the best cask in central africa!', '20-04-2021', 1, 21, NULL),
+(3, 'Alex Lukusa', 'alex@gmail.com', 'It\'s a very good kind of cask, I realy love it!', '21-04-2021', 0, 21, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `email`
+--
+
+CREATE TABLE `email` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `iduser` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `email`
+--
+
+INSERT INTO `email` (`id`, `email`, `iduser`) VALUES
+(1, 'surmpy.engineering@yahoo.com', NULL),
+(2, 'bobpoba@surmpyengineering.com', NULL);
 
 -- --------------------------------------------------------
 
@@ -88,11 +109,6 @@ CREATE TABLE `image` (
 --
 
 INSERT INTO `image` (`id`, `image`, `main`, `idproduit`) VALUES
-(13, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (2).jpg', 1, 12),
-(14, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (7).jpg', 0, 12),
-(15, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (6).jpg', 0, 12),
-(16, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images (11).jpg', 0, 12),
-(17, 'fichierce76455adc0c1fe3a2bf43e555b7d886_images.jpg', 0, 12),
 (18, 'fichierb76c6b0f5594588986a2deffc97e5580_hero-slide1.png', 1, 13),
 (19, 'fichierb76c6b0f5594588986a2deffc97e5580_product5.png', 0, 13),
 (20, 'fichiera4be13e2fcd6da47a654bd2ce5c31b06_hero-slide2.png', 1, 14),
@@ -133,7 +149,8 @@ CREATE TABLE `message` (
 
 INSERT INTO `message` (`id`, `sender`, `email`, `subject`, `message`, `date`, `etat`, `iduser`) VALUES
 (1, 'Kasongo Scott', 'scott@gmail.com', 'Contact', 'Hi! I am so amazed to see you here', '10-04-2021', 1, 1),
-(2, 'Youri', 'youri@gmail.com', 'Command', 'J\'ai besoin d\'une chemise', '12-04-2021', 1, 1);
+(2, 'Youri', 'youri@gmail.com', 'Command', 'J\'ai besoin d\'une chemise', '12-04-2021', 1, 1),
+(3, 'Elisha', 'elisa@gmail.com', 'Asking a question', 'Is it possible to command more than one item of this products?', '21-04-2021', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -154,7 +171,6 @@ CREATE TABLE `produit` (
 --
 
 INSERT INTO `produit` (`id`, `designation`, `prix`, `description`, `idcategorie`) VALUES
-(12, 'Ecouteur', '2000', 'lorem', 1),
 (13, 'Chosuure', '30000', 'Tres belles chossures ', 2),
 (14, 'Ecouteur', '12000', 'Des ecouteurs pas comme les autres.', 1),
 (15, 'Mechanic tool', '12000', 'Un outil tres fort et puissant', 4),
@@ -206,6 +222,13 @@ ALTER TABLE `commentaire`
   ADD KEY `fk_user` (`iduser`);
 
 --
+-- Indexes for table `email`
+--
+ALTER TABLE `email`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_euser` (`iduser`);
+
+--
 -- Indexes for table `image`
 --
 ALTER TABLE `image`
@@ -246,25 +269,31 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT for table `commentaire`
 --
 ALTER TABLE `commentaire`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `email`
+--
+ALTER TABLE `email`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -282,6 +311,12 @@ ALTER TABLE `user`
 ALTER TABLE `commentaire`
   ADD CONSTRAINT `fk_com_prod` FOREIGN KEY (`idproduit`) REFERENCES `produit` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_user` FOREIGN KEY (`iduser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `email`
+--
+ALTER TABLE `email`
+  ADD CONSTRAINT `fk_euser` FOREIGN KEY (`iduser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `image`

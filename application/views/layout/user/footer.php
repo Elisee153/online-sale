@@ -1,3 +1,105 @@
+<script src=<?=base_url("assets/user/vendors/jquery/jquery-3.2.1.min.js")?>></script>
+<?php
+    if($active_option == 'home')
+    {
+?>
+    <script>
+        $(function(){
+            $('#home').addClass('active');
+        })
+    </script>
+<?php
+    }else{
+?>
+    <script>
+        $(function(){
+            $('#home').removeClass('active');
+        })
+    </script>
+<?php
+    }
+?>
+<?php
+    if($active_option == 'product')
+    {
+?>
+    <script>
+        $(function(){
+            $('#product').addClass('active');
+        })
+    </script>
+<?php
+    }else{
+?>
+    <script>
+        $(function(){
+            $('#product').removeClass('active');
+        })
+    </script>
+<?php
+    }
+?>
+<?php
+    if($active_option == 'categorie')
+    {
+?>
+    <script>
+        $(function(){
+            $('#categorie').addClass('active');
+        })
+    </script>
+<?php
+    }else{
+?>
+    <script>
+        $(function(){
+            $('#categorie').removeClass('active');
+        })
+    </script>
+<?php
+    }
+?>
+<?php
+    if($active_option == 'contact')
+    {
+?>
+    <script>
+        $(function(){
+            $('#contact').addClass('active');
+        })
+    </script>
+<?php
+    }else{
+?>
+    <script>
+        $(function(){
+            $('#contact').removeClass('active');
+        })
+    </script>
+<?php
+    }
+?>
+<?php
+    if($active_option == 'about')
+    {
+?>
+    <script>
+        $(function(){
+            $('#about').addClass('active');
+        })
+    </script>
+<?php
+    }else{
+?>
+    <script>
+        $(function(){
+            $('#about').removeClass('active');
+        })
+    </script>
+<?php
+    }
+?>
+
 <footer class="footer">
         <div class="footer-area">
             <div class="container">
@@ -25,50 +127,36 @@
                             </ul> 
                         </div>
                     </div>
-                    <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+                    <div class="offset-lg-2 col-lg-2 col-md-6 col-sm-6">
                         <div class="single-footer-widget tp_widgets">
                             <h4 class="footer_title">Quick Links</h4>
                             <ul class="list">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Products</a></li>
-                                <li><a href="#">Categories</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">About</a></li>
+                                <li><a href="<?=site_url("user/index")?>">Home</a></li>
+                                <li><a href="<?=site_url("user/all_product")?>">Products</a></li>
+                                <li><a href="<?=site_url("user/contact")?>">Contact</a></li>
+                                <li><a href="<?=site_url("user/about")?>">About</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="single-footer-widget instafeed">
-                            <h4 class="footer_title">Gallery</h4>
-                            <ul class="list instafeed d-flex flex-wrap">
-                                <li><img src=<?=base_url("assets/user/img/gallery/r1.jpg")?> alt=""></li>
-                                <li><img src=<?=base_url("assets/user/img/gallery/r2.jpg")?> alt=""></li>
-                                <li><img src=<?=base_url("assets/user/img/gallery/r3.jpg")?> alt=""></li>
-                                <li><img src=<?=base_url("assets/user/img/gallery/r5.jpg")?> alt=""></li>
-                                <li><img src=<?=base_url("assets/user/img/gallery/r7.jpg")?> alt=""></li>
-                                <li><img src=<?=base_url("assets/user/img/gallery/r8.jpg")?> alt=""></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+                    <div class="offset-lg-2 col-lg-3 col-md-6 col-sm-6">
                         <div class="single-footer-widget tp_widgets">
                             <h4 class="footer_title">Contact Us</h4>
                             <div class="ml-40">
                                 <p class="sm-head">
                                     <span class="fa fa-location-arrow"></span> Head Office
                                 </p>
-                                <p>123, Main Street, Your City</p>
+                                <p>5,avenue Nkulimba, Quartier Kassapa Commune Annexe</p>
                                 <p class="sm-head">
                                     <span class="fa fa-phone"></span> Phone Number
                                 </p>
                                 <p>
-                                    +123 456 7890 <br> +123 456 7890
+                                    +243 823155262<br> +260 979 858 411 <br> +260 977 454 343 <br>+260 967 454 343
                                 </p>
                                 <p class="sm-head">
                                     <span class="fa fa-envelope"></span> Email
                                 </p>
                                 <p>
-                                    <a href="https://preview.colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4a2c382f2f0a23242c252f322b273a262f64292527">[email&#160;protected]</a> <br> www.infoexample.com
+                                    bobpoba@surmpyengineering.com​<br>surmpy.engineering@yahoo.com​
                                 </p>
                             </div>
                         </div>

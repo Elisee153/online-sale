@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Oneline Sales</title>
+    <title>Surmpy-engineering</title>
     <link rel="icon" href=<?=base_url("assets/user/img/Fevicon.png")?> type="image.png">
     <link rel="stylesheet" href=<?=base_url("assets/user/vendors/bootstrap/bootstrap.min.css")?>>
     <link rel="stylesheet" href=<?=base_url("assets/user/vendors/fontawesome/css/all.min.css")?>>
@@ -16,7 +16,9 @@
     <link rel="stylesheet" href=<?=base_url("assets/user/vendors/owl-carousel/owl.theme.default.min.css")?>>
     <link rel="stylesheet" href=<?=base_url("assets/user/vendors/owl-carousel/owl.carousel.min.css")?>>
     <link rel="stylesheet" href=<?=base_url("assets/user/css/style.css")?>>
+    
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <style>

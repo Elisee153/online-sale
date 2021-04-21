@@ -13,16 +13,23 @@
                 </button>
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Products</a></li>
-                        <li class="nav-item submenu dropdown">
+                        <li id="home" class="nav-item"><a class="nav-link" href="<?=site_url("user/index")?>">Home</a></li>
+                        <li id="product"  class="nav-item"><a class="nav-link" href="<?=site_url("user/all_product")?>">Products</a></li>
+                        <li id="categorie" class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="category.html">Categories</a></li>
+                                <?php
+                                    foreach($categorie as $cat)
+                                    {
+                                ?>
+                                        <li class="nav-item"><a class="nav-link" href="<?=site_url("user/prod_by_cat?id=".$cat->id)?>"><?=$cat->nom?></a></li>
+                                <?php
+                                    }
+                                ?>
                             </ul>
                         </li>                        
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">About</a></li>
+                        <li id="contact" class="nav-item"><a class="nav-link" href="<?=site_url("user/contact")?>">Contact</a></li>
+                        <li id="about"  class="nav-item"><a class="nav-link" href="<?=site_url("user/about")?>">About</a></li>
                     </ul>
                 </div>
             </div>
