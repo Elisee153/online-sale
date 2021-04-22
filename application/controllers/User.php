@@ -89,7 +89,9 @@ class User extends CI_Controller
         $product[0]->image = $this->Crud->get_data('image',['idproduit'=>$product[0]->id]);
         $product[0]->categorie = $this->Crud->get_data('categorie',['id'=>$product[0]->idcategorie])[0]->nom;
         $comment = $this->Crud->get_data('commentaire',['idproduit'=>$idproduit]);
+        $active_option = "product";
 
+        $d['active_option'] = $active_option;
         $d['product'] = $product;
         $d['comment'] = $comment;
 
@@ -169,25 +171,4 @@ class User extends CI_Controller
 
         redirect("user/index");
     }
-    // public function comment_by_produit()
-    // {
-    //     $idproduit = $this->input->post('idproduit');
-
-    //     $comment = $this->Crud->get_data('commentaire'); 
-    // }
-
-    // public function detail_produit()
-    // {
-    //     $idproduit = $this->input->post('idproduit');
-
-    //     $product = $this->Crud->join_data('produit','categorie','produit.idcategorie = categorie.id',
-    //                                                 'produit.id','DESC',['id'=>$idproduit],null);
-
-    //     $product[0]->image = $this->Crud->get_data('image',['idproduit'=>$product[0]->id]);
-
-    //     $d['product'] = $product;
-
-    //     $this->load->view('user/product_detail',$d);
-    //     $this->load->view('layout/user/js');
-    // }
 }

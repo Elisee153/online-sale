@@ -120,7 +120,6 @@
             <div class="container">
                 <div class="subscribe text-center">
                     <h3 class="subscribe__title">Get Update From Anywhere</h3>
-                    <p>Bearing Void gathering light light his eavening unto dont afraid</p>
                     <div>
                         <form action="<?=site_url("user/newslater")?>" method="post" class="subscribe-form form-inline mt-5 pt-1">
                             <div class="form-group ml-sm-auto">

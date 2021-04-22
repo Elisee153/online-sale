@@ -23,7 +23,13 @@
                                     {
                                 ?>
                                     <tr>
-                                        <td><?=$c->nom?></td>
+                                        <td style="width:200px"><?=$c->nom?></td>
+                                        <td>
+                                            <form id="form-delete-cat" onclick='javascript:confirmation($(this));return false;'action="<?=site_url("admin/delete_cat")?>" method="post" style="float:right;">                                
+                                                <input type="hidden" value="<?=$c->id?>" name="id">
+                                                <button class="btn btn-info" id="delete-cat">Supprimer</button>
+                                            </form> 
+                                        </td>
                                     </tr>
                                 <?php
                                     }
@@ -39,7 +45,7 @@
                             
                         </div>
                         <div class="col-md-3">
-                                <button  type="submit" style="margin-top:30px" class="btn btn-info">Ajouter</button>
+                                <button  type="submit" style="margin-top:30px" class="btn btn-success">Ajouter</button>
                         </div>
                         </form>
                     </div>
@@ -48,3 +54,34 @@
         </div>
     </section>
 </div>
+
+
+<script>
+    var del = document.getElementById('delete-cat');
+    var form = document.getElementById('form-delete-cat');
+
+    del.addEventListener('click',function(e){
+        e.preventDefault();
+        form.click();
+    }); 
+
+    function confirmation(anchor)
+    {
+        swal({
+            title: "Voulez-vous vraiment supprimmer cette categorie?",
+            text: "Vous ne serez plus capable de la recuperer!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                swal("Categorie supprimée!", {
+                icon: "success",
+                });
+                anchor.submit();
+            } 
+            });
+    }  
+    
+</script>

@@ -1,3 +1,12 @@
+<?php
+    if($this->session->user_update){
+?>
+        <script>
+            swal("Bon travail", "Informations mises à jour avec succès", "success");
+        </script>
+<?php
+    }
+?>
  <!-- Main Content -->
  <div class="main-content">
     <section class="section">

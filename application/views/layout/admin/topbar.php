@@ -30,23 +30,23 @@
               <div class="dropdown-header">
                 Messages
               </div>
+              <div class="dropdown-list-content dropdown-list-message">
               <?php
-                foreach($mes_non_lu as $m){
+                foreach($tree_last_mes as $m){
               ?>
-                <div class="dropdown-list-content dropdown-list-message">
-                  <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar
+                  <a href="<?=site_url('admin/mail_detail?id='.$m->id)?>" class="dropdown-item"> <span class="dropdown-item-avatar
                         text-white"> <img alt="image" src=<?=base_url("assets/img/avatar/avatar.png")?> class="rounded-circle">
                     </span> <span class="dropdown-item-desc"> <span class="message-user"><?=$m->sender?></span>
                       <span class="time messege-text"><?=$m->subject?></span>
                       <span class="time"><?=$m->date?></span>
                     </span>
                   </a> 
-                </div>
                 <?php
                 }
                 ?>
+                </div>
               <div class="dropdown-footer text-center">
-                <a href="#">Voir tout<i class="fas fa-chevron-right"></i></a>
+                <a href="<?=site_url("admin/all_mails")?>">Voir tout<i class="fas fa-chevron-right"></i></a>
               </div>
             </div>
           </li>
@@ -55,7 +55,7 @@
                 class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
               <div class="dropdown-title">Hello <?=$this->session->nom?></div>
-              <a href="profile.html" class="dropdown-item has-icon"> <i class="far fa-user"></i> 
+              <a href="<?=site_url("admin/profile")?>" class="dropdown-item has-icon"> <i class="far fa-user"></i> 
                 Profile
               </a>
               <div class="dropdown-divider"></div>

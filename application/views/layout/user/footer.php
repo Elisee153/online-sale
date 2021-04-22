@@ -5,7 +5,7 @@
 ?>
     <script>
         $(function(){
-            $('#home').addClass('active');
+            $('#head-home').addClass('active');
         })
     </script>
 <?php
@@ -13,7 +13,7 @@
 ?>
     <script>
         $(function(){
-            $('#home').removeClass('active');
+            $('#head-home').removeClass('active');
         })
     </script>
 <?php
@@ -65,7 +65,7 @@
 ?>
     <script>
         $(function(){
-            $('#contact').addClass('active');
+            $('#head-contact').addClass('active');
         })
     </script>
 <?php
@@ -73,7 +73,7 @@
 ?>
     <script>
         $(function(){
-            $('#contact').removeClass('active');
+            $('#head-contact').removeClass('active');
         })
     </script>
 <?php

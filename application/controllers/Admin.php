@@ -15,7 +15,8 @@ class Admin extends CI_Controller
         if($this->session->connected)
         {
             $mes_non_lu = $this->Crud->get_data('message',['etat'=>0]);
-            $this->load->view('layout/admin/topbar',['mes_non_lu'=>$mes_non_lu]);
+            $tree_last_mes = $this->Crud->get_data_desc('message',[],3);
+            $this->load->view('layout/admin/topbar',['mes_non_lu'=>$mes_non_lu,'tree_last_mes'=>$tree_last_mes]);
             $this->load->view('layout/admin/sidebar');
         }
     }
@@ -200,6 +201,16 @@ class Admin extends CI_Controller
         redirect('admin/all_categorie');
     }
 
+    public function delete_cat()
+    {
+        $idcat = $this->input->post('id');
+
+        $this->Crud->delete_data('categorie',['id'=>$idcat]);
+
+        redirect('admin/all_categorie');
+        
+    }
+
     public function all_mails()
     {
         $this->check_connexion();
@@ -282,5 +293,31 @@ class Admin extends CI_Controller
         $this->Crud->delete_data('produit',['id'=>$idproduit]);
 
         redirect('admin/all_product');
+    }
+
+    public function profile()
+    {
+        if(count($_POST) <= 0)
+        {
+            $user = $this->Crud->get_data('user',['id'=>$this->session->id]);
+
+            $this->load->view('admin/profile',['user'=>$user]);
+            $this->load->view('layout/admin/js');
+        }else
+        {
+            $iduser = $this->input->post('id');
+
+            $this->Crud->update_data('user',['id'=>$iduser],[
+                'name' => $this->input->post('name'),
+                'username' => $this->input->post('username'),
+                'mdp' => $this->input->post('mdp'),
+                'email' => $this->input->post('mdp'),
+                'type' => 'admin'
+            ]);
+
+            $this->session->set_flashdata(['user_update'=>true]);
+
+            redirect('admin/index');
+        }
     }
 }
