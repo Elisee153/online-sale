@@ -40,7 +40,9 @@ class Admin extends CI_Controller
         $com_join = $this->Crud->join_data('commentaire','produit','commentaire.idproduit = produit.id','commentaire.id','DESC',[],5);
         $com_non_lu = $this->Crud->get_data('commentaire',['etat'=>0]);
         $com = $this->Crud->get_data('commentaire');
+        $active_option = "acceuil";
 
+        
         $d = [
             'produit' => $product,
             'categorie' => $cat,
@@ -48,7 +50,8 @@ class Admin extends CI_Controller
             'mes' => $mes,
             'com_non_lu' => $com_non_lu,
             'com' => $com,
-            'com_join' => $com_join
+            'com_join' => $com_join,
+            'active_option' => $active_option,
         ];
 
         $this->load->view('admin/index',$d);
@@ -101,13 +104,16 @@ class Admin extends CI_Controller
         $this->check_connexion();
 
         $product = $this->Crud->join_data('produit','categorie','produit.idcategorie = categorie.id','produit.id','DESC',[]);
+        $active_option = "produit";
 
         $d = [
-            'product'=>$product
+            'product'=>$product,
+            'active_option' => $active_option,
         ];
 
         $this->load->view('admin/all_product',$d);
         $this->load->view('layout/admin/js');
+        $this->load->view('layout/admin/footer');
     }
 
     public function new_product()
@@ -116,20 +122,25 @@ class Admin extends CI_Controller
 
         if(count($_POST) <= 0)
         {
+            $active_option = "produit";
+            $d['active_option'] = $active_option;
+
             $d['categ'] = $this->Crud->get_data('categorie');
 
             $this->load->view('admin/new_product',$d);
             $this->load->view('layout/admin/js');
+            $this->load->view('layout/admin/footer');
         }else{
             $this->db->trans_start();
 
             $prix = $this->input->post('prix').' '.$this->input->post('devise');
+            
 
             $d = [
                 'designation' => $this->input->post('designation'),
                 'prix' => $prix,
                 'description' => $this->input->post('description'),
-                'idcategorie' => $this->input->post('categorie')
+                'idcategorie' => $this->input->post('categorie'),                
             ];
 
             //ajout d'un produit
@@ -170,11 +181,14 @@ class Admin extends CI_Controller
         $product = $this->Crud->join_data('produit','categorie','produit.idcategorie = categorie.id','produit.id','DESC',['produit.id'=>$idproduit]);
         
         $product[0]->image = $this->Crud->get_data('image',['idproduit'=>$product[0]->id]);
-         
+        $active_option = 'produit';
+
         $d['product'] = $product;
+        $d['active_option'] = $active_option;
 
         $this->load->view('admin/product_detail',$d);
         $this->load->view('layout/admin/js');
+        $this->load->view('layout/admin/footer');
     }
     //==============================================================
 //les categories
@@ -183,9 +197,14 @@ class Admin extends CI_Controller
     {
         $this->check_connexion();
 
+        $active_option = 'categorie';
+
         $d['categorie'] = $this->Crud->get_data_desc('categorie');
+        $d['active_option'] = $active_option;
+
         $this->load->view('admin/all_categorie',$d);
         $this->load->view('layout/admin/js');
+        $this->load->view('layout/admin/footer');
     }
 
     public function new_categorie()
@@ -214,10 +233,14 @@ class Admin extends CI_Controller
     public function all_mails()
     {
         $this->check_connexion();
+        $active_option = "mail";
 
         $d['mail'] = $this->Crud->get_data_desc('message');
+        $d['active_option'] = $active_option;
+
         $this->load->view('admin/message',$d);
         $this->load->view('layout/admin/js');
+        $this->load->view('layout/admin/footer');
     }
 
     public function mail_detail()
@@ -225,8 +248,10 @@ class Admin extends CI_Controller
         $this->check_connexion();
 
         $m_id = $this->input->get('id');
+        $active_option = "mail"; 
 
         $d['message'] = $this->Crud->get_data('message',['id'=>$m_id]);
+        $d['active_option'] = $active_option;
         
         if($d['message'][0]->etat == 0)
         {
@@ -235,6 +260,7 @@ class Admin extends CI_Controller
 
         $this->load->view('admin/mail_detail',$d);
         $this->load->view('layout/admin/js');
+        $this->load->view('layout/admin/footer');
     }
 
     public function send_mail()
@@ -264,10 +290,15 @@ class Admin extends CI_Controller
     {
         $this->check_connexion();
 
+        $active_option = 'comment';
+        $d['active_option'] = $active_option;
+
         $d['comment'] = $this->Crud->join_data('commentaire','produit','commentaire.idproduit = produit.id','commentaire.id','DESC',[]);
-        
+        $d['active_option'] = $active_option;
+
         $this->load->view('admin/comment',$d);
         $this->load->view('layout/admin/js');
+        $this->load->view('layout/admin/footer');
     }
 
     public function comment_detail()
@@ -275,6 +306,8 @@ class Admin extends CI_Controller
         $this->check_connexion();
 
         $c_id = $this->input->get('id');
+        $active_option = 'comment';
+        $d['active_option'] = $active_option;
         $d['comment'] = $this->Crud->join_data('commentaire','produit','commentaire.idproduit = produit.id','commentaire.id','DESC',['commentaire.id'=>$c_id]);
         
         if($d['comment'][0]->etat == 0)
@@ -284,6 +317,7 @@ class Admin extends CI_Controller
         
         $this->load->view('admin/comment_detail',$d);
         $this->load->view('layout/admin/js');
+        $this->load->view('layout/admin/footer');
     }
 
     public function delete()

@@ -105,16 +105,6 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Produits</h4>
-                    <div class="card-header-form">
-                        <form>
-                            <div class="input-group">
-                                <input id="search-form" type="text" class="form-control" placeholder="Recherche">
-                                <div class="input-group-btn">
-                                    <button id="search" style="padding:8px" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive">
